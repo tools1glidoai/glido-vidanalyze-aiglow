@@ -19,11 +19,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Get static files directory from environment variable or use default
-STATIC_FILES_DIR = os.getenv("STATIC_FILES_DIR", "static")
 
-# Mount static files
-app.mount("/assets", StaticFiles(directory=os.path.join(STATIC_FILES_DIR, "assets")), name="assets")
 
 # Initialize Gemini
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyDigx8Ds0ehc1aCggjx_7h3Nbmug6QL39Q")
@@ -47,13 +43,6 @@ safety_settings = [
 # Ensure temp directory exists
 os.makedirs("temp", exist_ok=True)
 
-@app.get("/")
-async def read_root():
-    """Serve the frontend index.html"""
-    index_path = os.path.join(STATIC_FILES_DIR, "index.html")
-    if os.path.exists(index_path):
-        return FileResponse(index_path)
-    raise HTTPException(status_code=404, detail="Frontend not found")
 
 @app.get("/health")
 async def health_check():
