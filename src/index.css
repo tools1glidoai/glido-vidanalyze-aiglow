@@ -1,0 +1,117 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 30% 98%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 255 82% 75%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 5% 96%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 142.1 76.2% 36.3%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 20 14.3% 4.1%;
+    --foreground: 0 0% 95%;
+
+    --card: 24 9.8% 10%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 142.1 70.6% 45.3%;
+    --primary-foreground: 144.9 80.4% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 142.4 71.8% 29.2%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    background-image: 
+      radial-gradient(ellipse at top left, rgba(155, 135, 245, 0.05), transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(211, 228, 253, 0.1), transparent 70%);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .frosted-panel {
+    @apply backdrop-blur-lg bg-white/40 border border-white/30 shadow-lg rounded-2xl;
+  }
+  
+  .step-indicator {
+    @apply flex items-center justify-center w-8 h-8 rounded-full bg-glido-purple/10 text-glido-purple font-semibold text-sm;
+  }
+  
+  .step-indicator.active {
+    @apply bg-glido-purple text-white;
+  }
+  
+  .btn-primary {
+    @apply bg-glido-purple hover:bg-glido-purple/90 text-white shadow-md hover:shadow-lg transition-all duration-300 ease-in-out 
+    px-6 py-3 rounded-lg font-medium tracking-wide;
+  }
+  
+  .btn-secondary {
+    @apply bg-white hover:bg-glido-light-purple/30 border border-glido-purple/20 text-glido-purple shadow-sm hover:shadow-md 
+    transition-all duration-300 ease-in-out px-6 py-3 rounded-lg font-medium tracking-wide;
+  }
+  
+  .progress-container {
+    @apply bg-white/50 rounded-full h-2 w-full overflow-hidden;
+  }
+  
+  .progress-bar {
+    @apply bg-glido-purple h-full rounded-full transition-all duration-500 ease-out;
+  }
+}

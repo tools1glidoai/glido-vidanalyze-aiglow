@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  backend:
+    build: 
+      context: .
+      target: python-base
+    ports:
+      - "8000:8000"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - STATIC_FILES_DIR=/app/static
+    volumes:
+      - ./src:/app/src
+      - ./temp:/app/temp
+    restart: unless-stopped
+
+  frontend:
+    image: node:18-alpine
+    working_dir: /app
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+    environment:
+      - VITE_API_URL=http://localhost:8000
+    depends_on:
+      - backend 

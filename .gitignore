@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+dist/
+build/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+temp/
+temp_*
+
+# Docker
+.docker/
+
+# Testing
+coverage/
+.coverage
+.pytest_cache/
+
+# Production
+.env.production
